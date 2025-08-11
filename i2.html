@@ -13,7 +13,7 @@
     :root{
       --bg1: #0f172a; /* deep navy */
       --bg2: #071124; /* darker */
-      --accent: #ff4438; /* mint */
+      --accent: #7ee787; /* mint */
       --accent-2: #f6c85f; /* warm gold */
       --glass: rgba(255,255,255,0.06);
       --card: rgba(255,255,255,0.03);
@@ -38,8 +38,8 @@
     .brand{display:flex;align-items:center;gap:12px}
     .logo{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 6px 18px rgba(13,20,30,0.6);font-family:'Press Start 2P',monospace;color:#071124;font-weight:700}
     h1.logo-txt{font-size:13px;margin:0}
-    .nav-links{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-    .nav-links a{color:inherit;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;opacity:0.9;white-space:nowrap}
+    .nav-links{display:flex;gap:14px;align-items:center}
+    .nav-links a{color:inherit;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;opacity:0.9}
     .nav-links a:hover{background:var(--glass);transform:translateY(-2px)}
 
     /* HERO */
@@ -61,32 +61,18 @@
     /* Projects */
     .section{max-width:980px;margin:28px auto;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));backdrop-filter:blur(6px)}
     .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--card);padding:12px;border-radius:12px;min-height:160px;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;transition:transform .18s ease, box-shadow .18s ease}
+    .card{background:var(--card);padding:12px;border-radius:12px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .18s ease, box-shadow .18s ease}
     .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
-    .card .thumb{height:120px;border-radius:8px;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:grid;place-items:center;font-family:'Press Start 2P',monospace;color:rgba(255,255,255,0.12);overflow:hidden;}
+    .card .thumb{height:98px;border-radius:8px;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:grid;place-items:center;font-family:'Press Start 2P',monospace;color:rgba(255,255,255,0.12)}
     .tags{display:flex;gap:8px;flex-wrap:wrap}
-    button.card {
-      border: none;
-      font: inherit;
-      color: inherit;
-      text-align: inherit;
-      cursor: pointer;
-    }
     .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02)}
-    .card-title{font-weight:800}
 
     /* About */
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
-    .about-grid p {
-      opacity: 0.85;
-      text-align: justify;
-      line-height: 1.6;
-    }
 
     /* Contact */
     form{display:flex;flex-direction:column;gap:12px}
     input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:12px;border-radius:8px;color:inherit}
-    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
 
     footer{max-width:980px;margin:28px auto;color:rgba(230,238,248,0.6);display:flex;justify-content:space-between;align-items:center}
 
@@ -95,18 +81,12 @@
       .hero{grid-template-columns:1fr}
       .projects-grid{grid-template-columns:repeat(2,1fr)}
       .about-grid{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr;gap:24px}
     }
     @media (max-width:620px){
       .projects-grid{grid-template-columns:1fr}
-      nav{padding:8px;flex-direction:column;gap:12px}
-      .nav-links{gap:8px;justify-content:center}
-      .nav-links a{padding:6px 10px;font-size:14px}
+      nav{padding:8px}
       .logo{width:40px;height:40px}
       h2{font-size:26px}
-      .contact-grid{gap:20px}
-      .section{padding:20px}
-      .hero{padding:24px}
     }
 
     /* little pixel accent */
@@ -124,13 +104,14 @@
         <div class="logo">PB</div>
         <div>
           <div style="font-weight:800">Pesky Birds</div>
+          <div style="font-size:12px;opacity:0.8">Minecraft Addon Developer</div>
         </div>
       </div>
       <div class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a class="btn btn-ghost" href="https://www.curseforge.com/members/pesky_birds/projects" target="_blank" rel="noopener noreferrer">CurseForge</a>
+        <a class="btn btn-ghost" href="#projects">Marketplace</a>
       </div>
     </nav>
   </header>
@@ -138,11 +119,11 @@
   <main>
     <section class="hero" id="home">
       <div class="hero-left">
-        <h2>Building immersive Minecraft Bedrock Addons</h2>
-        <p class="sub">Pesky birds is a small studio focused on lightweight, compatible Bedrock addons that feel native to the game.</p>
+        <h2>Build immersive Minecraft Bedrock Addons<br><span style="color:var(--accent)">Mods, Addons, Skins & Biomes</span></h2>
+        <p class="sub">Hi — I'm a creator focused on lightweight, compatible Bedrock addons that feel native to the game. I make everything from new ores and plants to UI-driven brewing systems and skin packs.</p>
         <div class="cta">
-          <a class="btn btn-primary" href="#projects">Portfolio</a>
-          <a class="btn btn-ghost" href="#contact">Contact</a>
+          <a class="btn btn-primary" href="#projects">View Work</a>
+          <a class="btn btn-ghost" href="mailto:youremail@example.com">Hire / Contact</a>
         </div>
 
         <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
@@ -156,13 +137,11 @@
       <div class="hero-right">
         <div class="device">
           <div class="screenshot">
-            <a href="https://www.curseforge.com/minecraft-bedrock/addons/crunch" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/crunch_logo.png" alt="Crunch Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
-            </a>
+            <div class="pixel">Preview: Rivers + — Ore Sand in rivers</div>
           </div>
           <div class="meta">
             <div style="font-size:13px;opacity:0.9">Latest Addon</div>
-            <div style="font-size:13px;opacity:0.8">v3.1.1 • Bedrock</div>
+            <div style="font-size:13px;opacity:0.8">v1.2 • Bedrock</div>
           </div>
         </div>
 
@@ -170,7 +149,7 @@
           <div class="device" style="flex:1;min-height:64px;justify-content:center;align-items:center">
             <div style="text-align:center">
               <div style="font-weight:800">Downloads</div>
-              <div style="opacity:0.8">6000+</div>
+              <div style="opacity:0.8">12,384+</div>
             </div>
           </div>
           <div class="device" style="width:110px;min-height:64px;justify-content:center;align-items:center">
@@ -186,75 +165,65 @@
 
     <section class="section" id="projects">
       <h3 style="margin:0 0 10px">Featured Projects</h3>
-      <p style="margin:0 0 18px;opacity:0.8"></p>
+      <p style="margin:0 0 18px;opacity:0.8">A selection of addons, skin packs and modular systems. Click any card for details.</p>
 
       <div class="projects-grid">
-        <button class="card" onclick="openModal('Crunch','A food addon that adds lots of new food items and recipes.')">
-          <div class="thumb">
-            <img src="Assets/Images/crunch_thumbnail.png" alt="Crunch Logo" style="width:100%;height:100%;object-fit:contain;display:block;">
-          </div>
+        <div class="card" onclick="openModal('Rivers +','Ore Sand resource-gathering in rivers that yields nuggets and can be smelted. Requires Silk Touch to collect Ore Sand blocks. Adds new biome features and crafting.')">
+          <div class="thumb">Rivers +</div>
           <div>
-            <div class="card-title">Crunch</div>
-            <div style="font-size:13px;opacity:0.8">Addon • Food • v3.1.1</div>
+            <div style="font-weight:800">Rivers +</div>
+            <div style="font-size:13px;opacity:0.8">Addon • Resource • v1.2</div>
             <div class="tags" style="margin-top:8px">
-              <div class="tag">Addon</div><div class="tag">Food</div>
+              <div class="tag">Ore</div><div class="tag">Biome</div><div class="tag">Silk Touch</div>
             </div>
           </div>
-        </button>
+        </div>
 
-        <button class="card" onclick="openModal('One Piece','A comprehansive skin pack for the One Piece universe.')">
-          <div class="thumb">
-            <img src="Assets/Images/one_piece_thumbnail.png" alt="One Piece Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
+        <div class="card" onclick="openModal('A Witch\'s Brew','A brewing overhaul with a cauldron UI, potion pouches, stackable potions up to 16, and new plants like mandrake & lightning lily.')">
+          <div class="thumb">A Witch's Brew</div>
           <div>
-            <div style="font-weight:800">One Piece</div>
-            <div style="font-size:13px;opacity:0.8">Skin Pack • One Piece • v1.0</div>
+            <div style="font-weight:800">A Witch's Brew</div>
+            <div style="font-size:13px;opacity:0.8">Addon • Brewing • Prototype</div>
             <div class="tags" style="margin-top:8px">
-              <div class="tag">Skins Pack</div><div class="tag">One Piece</div>
+              <div class="tag">Brewing</div><div class="tag">UI</div><div class="tag">Potions</div>
             </div>
           </div>
-        </button>
+        </div>
 
-        <button class="card" onclick="openModal('Dragon Ball','A comprehensive skin pack for the Dragon Ball universe.')">
-          <div class="thumb">
-            <img src="Assets/Images/dragon_ball_thumbnail.png" alt="Dragon Ball Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
+        <div class="card" onclick="openModal('Sage Flower','A mystical flower that glows at night, can be dried into Sage Dust (fuel & potion ingredient) and crafted into orange dye.')">
+          <div class="thumb">The Sage Flower</div>
           <div>
-            <div style="font-weight:800">Dragon Ball</div>
-            <div style="font-size:13px;opacity:0.8">Skin Pack • Dragon Ball • v1.0</div>
+            <div style="font-weight:800">The Sage Flower</div>
+            <div style="font-size:13px;opacity:0.8">Addon • Item • v1.0</div>
             <div class="tags" style="margin-top:8px">
-              <div class="tag">Skins Pack</div><div class="tag">Dragon Ball</div>
+              <div class="tag">Item</div><div class="tag">Glow</div><div class="tag">Sniffer</div>
             </div>
           </div>
-        </button>
+        </div>
 
-        <button class="card" onclick="openModal('Fuel Bits','Adds fuel bits which smelt a single item each, a compact fuel mechanic for tiny builds.')">
-          <div class="thumb">
-            <img src="Assets/Images/fuel_bits_thumbnail.png" alt="Fuel Bits Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
+        <div class="card" onclick="openModal('Cooking Magic Skin Pack','A skin pack of chefs and culinary characters for roleplay and servers. 10 skins included.')">
+          <div class="thumb">Cooking Magic</div>
           <div>
-            <div style="font-weight:800">Fuel Bits</div>
+            <div style="font-weight:800">Cooking Magic</div>
+            <div style="font-size:13px;opacity:0.8">Skin Pack • 10 skins</div>
+            <div class="tags" style="margin-top:8px">
+              <div class="tag">Skins</div><div class="tag">Roleplay</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="openModal('Coal Bits','Adds coal bits which smelt a single item each, a compact fuel mechanic for tiny builds.')">
+          <div class="thumb">Coal Bits</div>
+          <div>
+            <div style="font-weight:800">Coal Bits</div>
             <div style="font-size:13px;opacity:0.8">Addon • Utility</div>
             <div class="tags" style="margin-top:8px">
-              <div class="tag">Addon</div><div class="tag">Utility</div>
+              <div class="tag">Fuel</div><div class="tag">Utility</div>
             </div>
           </div>
-        </button>
+        </div>
 
-        <button class="card" onclick="openModal('Goblin Slayer','A comprehensive skin pack for the Goblin Slayer universe.')">
-          <div class="thumb">
-            <img src="Assets/Images/goblin_slayer_thumbnail.png" alt="Goblin Slayer Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div>
-            <div style="font-weight:800">Goblin Slayer</div>
-            <div style="font-size:13px;opacity:0.8">Skin Pack • Goblin Slayer • v1.0</div>
-            <div class="tags" style="margin-top:8px">
-              <div class="tag">Skins Pack</div><div class="tag">Goblin Slayer</div>
-            </div>
-          </div>
-        </button>
-
-        <button class="card" onclick="openModal('High Noon Heroes Skin Pack','Cowboys and Wild West themed skins. 6 characters including a cowgirl.')">
+        <div class="card" onclick="openModal('High Noon Heroes Skin Pack','Cowboys and Wild West themed skins. 6 characters including a cowgirl.')">
           <div class="thumb">High Noon Heroes</div>
           <div>
             <div style="font-weight:800">High Noon Heroes</div>
@@ -263,15 +232,23 @@
               <div class="tag">Skins</div><div class="tag">Theme</div>
             </div>
           </div>
-        </button>
+        </div>
 
       </div>
     </section>
 
     <section class="section" id="about">
-      <h3 style="margin:0 0 8px">About Us</h3>
+      <h3 style="margin:0 0 8px">About Me</h3>
       <div class="about-grid">
-        <div><p>Founded in 2023 by “Luciosinferno,” Pesky Birds is a small game development studio creating engaging Minecraft Bedrock addons and DLC. What began as a hobby in 2017 grew into a dedicated studio, releasing custom gameplay experiences, skins, and textures enjoyed by players across MCPEDL and CurseForge. To date, we’ve released over 17+ projects, including add-ons, skin packs, and textures, amassing more than 70,000 downloads worldwide.</p></div>
+        <div>
+          <p style="opacity:0.85">I design and build Minecraft Bedrock addons: data-driven entities, new items, UI systems and skin packs. I aim for compatibility, easy install, and behaviour that feels "native" to Bedrock. I publish community-friendly documentation and provide support via Discord and Patreon.</p>
+
+          <ul style="opacity:0.85">
+            <li>Tools: Blockbench, Visual Studio Code, JSON behaviours, Bedrock scripting API (learning)</li>
+            <li>Specialities: Lightweight systems, modular items, custom UIs</li>
+            <li>Available for contracts, marketplace partnerships, and commissions</li>
+          </ul>
+        </div>
         <div>
           <div style="padding:14px;border-radius:12px;background:var(--glass-2);min-height:180px;display:flex;flex-direction:column;gap:10px">
             <div style="font-weight:800">Quick facts</div>
@@ -301,9 +278,9 @@
 
     <section class="section" id="contact">
       <h3 style="margin:0 0 8px">Contact</h3>
-      <p style="opacity:0.8;margin:0 0 12px">Have a project, partnership, or question? Send a short message.</p>
+      <p style="opacity:0.8;margin:0 0 12px">Have a project, partnership, or question? Send a short message — I respond on Discord and email.</p>
 
-             <div class="contact-grid">
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px">
         <div>
           <form onsubmit="event.preventDefault(); sendForm()">
             <input id="name" placeholder="Your name" required />
