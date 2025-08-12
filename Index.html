@@ -82,13 +82,61 @@
       text-align: justify;
       line-height: 1.6;
     }
+    .quick-facts-container {
+      display: flex;
+      gap: 10px;
+    }
 
     /* Contact */
     form{display:flex;flex-direction:column;gap:12px}
     input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:12px;border-radius:8px;color:inherit}
     .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
 
-    footer{max-width:980px;margin:28px auto;color:rgba(230,238,248,0.6);display:flex;justify-content:space-between;align-items:center}
+    /* Social Media */
+    .social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  background: var(--glass-2);
+  color: inherit;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.social-btn img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.social-btn:hover {
+  background: var(--glass);
+  transform: translateY(-2px);
+}
+
+
+    footer{max-width:980px;margin:48px auto 0;padding:24px 0;color:rgba(230,238,248,0.6);display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--glass)}
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
 
     /* responsive */
     @media (max-width:980px){
@@ -107,6 +155,13 @@
       .contact-grid{gap:20px}
       .section{padding:20px}
       .hero{padding:24px}
+      .quick-facts-container {
+        flex-direction: column;
+      }
+      footer {
+        flex-direction: column;
+        gap: 16px;
+      }
     }
 
     /* little pixel accent */
@@ -254,13 +309,54 @@
           </div>
         </button>
 
-        <button class="card" onclick="openModal('High Noon Heroes Skin Pack','Cowboys and Wild West themed skins. 6 characters including a cowgirl.')">
-          <div class="thumb">High Noon Heroes</div>
+        <button class="card" onclick="openModal('High Noon Heroes','A skin pack for the Cowboys and girls.')">
+          <div class="thumb">
+            <img src="Assets/Images/high_noon_heroes_thumbnail.png" alt="High Noon Heroes Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
           <div>
             <div style="font-weight:800">High Noon Heroes</div>
             <div style="font-size:13px;opacity:0.8">Skin Pack • 6 skins</div>
             <div class="tags" style="margin-top:8px">
-              <div class="tag">Skins</div><div class="tag">Theme</div>
+              <div class="tag">Skins</div><div class="tag">Cowboys</div><div class="tag">Cowgirls</div>
+            </div>
+          </div>
+        </button>
+
+        <button class="card" onclick="openModal('High Noon Heroes','A skin pack for the Cowboys and girls.')">
+          <div class="thumb">
+            <img src="Assets/Images/high_noon_heroes_thumbnail.png" alt="High Noon Heroes Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div>
+            <div style="font-weight:800">High Noon Heroes</div>
+            <div style="font-size:13px;opacity:0.8">Skin Pack • 6 skins</div>
+            <div class="tags" style="margin-top:8px">
+              <div class="tag">Skins</div><div class="tag">Cowboys</div><div class="tag">Cowgirls</div>
+            </div>
+          </div>
+        </button>
+
+        <button class="card" onclick="openModal('High Noon Heroes','A skin pack for the Cowboys and girls.')">
+          <div class="thumb">
+            <img src="Assets/Images/high_noon_heroes_thumbnail.png" alt="High Noon Heroes Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div>
+            <div style="font-weight:800">High Noon Heroes</div>
+            <div style="font-size:13px;opacity:0.8">Skin Pack • 6 skins</div>
+            <div class="tags" style="margin-top:8px">
+              <div class="tag">Skins</div><div class="tag">Cowboys</div><div class="tag">Cowgirls</div>
+            </div>
+          </div>
+        </button>
+
+        <button class="card" onclick="openModal('High Noon Heroes','A skin pack for the Cowboys and girls.')">
+          <div class="thumb">
+            <img src="Assets/Images/high_noon_heroes_thumbnail.png" alt="High Noon Heroes Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div>
+            <div style="font-weight:800">High Noon Heroes</div>
+            <div style="font-size:13px;opacity:0.8">Skin Pack • 6 skins</div>
+            <div class="tags" style="margin-top:8px">
+              <div class="tag">Skins</div><div class="tag">Cowboys</div><div class="tag">Cowgirls</div>
             </div>
           </div>
         </button>
@@ -271,31 +367,65 @@
     <section class="section" id="about">
       <h3 style="margin:0 0 8px">About Us</h3>
       <div class="about-grid">
-        <div><p>Founded in 2023 by “Luciosinferno,” Pesky Birds is a small game development studio creating engaging Minecraft Bedrock addons and DLC. What began as a hobby in 2017 grew into a dedicated studio, releasing custom gameplay experiences, skins, and textures enjoyed by players across MCPEDL and CurseForge. To date, we’ve released over 17+ projects, including add-ons, skin packs, and textures, amassing more than 70,000 downloads worldwide.</p></div>
+        <div><p>Founded in 2023 by “Luciosinferno”, Pesky Birds is a small game development studio creating engaging Minecraft Bedrock addons and DLC. What began as a hobby in 2017 grew into a dedicated studio, releasing custom gameplay experiences, skins, and textures enjoyed by players across MCPEDL and CurseForge. To date, we’ve released over 17+ projects, including add-ons, skin packs, and textures, amassing more than 70,000 downloads worldwide.</p></div>
         <div>
           <div style="padding:14px;border-radius:12px;background:var(--glass-2);min-height:180px;display:flex;flex-direction:column;gap:10px">
             <div style="font-weight:800">Quick facts</div>
-            <div style="display:flex;justify-content:space-between;">
-              <div>
+            <div class="quick-facts-container">
+              <div class="btn btn-ghost">
                 <div style="font-weight:800">100+</div>
                 <div style="opacity:0.8">Hours of development</div>
               </div>
-              <div>
+              <div class="btn btn-ghost">
                 <div style="font-weight:800">20+</div>
                 <div style="opacity:0.8">Published assets</div>
               </div>
-              <div>
+              <div class="btn btn-ghost" >
                 <div style="font-weight:800">12k+</div>
                 <div style="opacity:0.8">Total downloads</div>
               </div>
             </div>
-
-            <div style="margin-top:auto;display:flex;gap:8px">
-              <a class="btn btn-primary" href="#contact">Work with me</a>
-              <a class="btn btn-ghost" href="#projects">See more</a>
-            </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="social">
+      <h3 style="margin:0 0 8px">Social Media & Links</h3>
+      <p style="opacity:0.8;margin:0 0 12px">
+        Follow us on our social media platforms and join our Discord server to stay updated with the latest news and announcements.
+      </p>
+    
+      <div class="social-grid">
+        <a href="https://www.youtube.com/@PeskyBirds-unite" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <img src="Assets/Icons/youtube.png" alt="YouTube">
+          <span>YouTube</span>
+        </a>
+    
+        <a href="https://discord.gg/YOURINVITECODE" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <img src="Assets/Icons/discord.png" alt="Discord">
+          <span>Discord</span>
+        </a>
+    
+        <a href="https://www.instagram.com/YOURUSERNAME" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <img src="Assets/Icons/instagram.png" alt="Instagram">
+          <span>Instagram</span>
+        </a>
+    
+        <a href="https://www.curseforge.com/members/pesky_birds/projects" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <img src="Assets/Icons/curseforge.png" alt="CurseForge">
+          <span>CurseForge</span>
+        </a>
+    
+        <a href="https://mcpedl.com/user/PeskyBirds/" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <img src="Assets/Icons/mcpedl.png" alt="MCPEDL">
+          <span>MCPEDL</span>
+        </a>
+    
+        <a href="https://www.planetminecraft.com/member/peskybirds/" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <img src="Assets/Icons/pmc.png" alt="Planet Minecraft">
+          <span>PlanetMinecraft</span>
+        </a>
       </div>
     </section>
 
@@ -311,29 +441,26 @@
             <textarea id="message" rows="5" placeholder="Tell me about your project" required></textarea>
             <div style="display:flex;gap:8px">
               <button class="btn btn-primary" type="submit">Send Message</button>
-              <button class="btn btn-ghost" type="button" onclick="location.href='https://ko-fi.com/'">Support (Ko-fi)</button>
             </div>
           </form>
-        </div>
-
-        <div style="padding:14px;border-radius:12px;background:var(--glass-2);">
-          <div style="font-weight:800">Social & Links</div>
-          <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
-            <a href="#" style="opacity:0.9">Discord: PeskyBirds#1234</a>
-            <a href="#" style="opacity:0.9">Patreon / Ko-fi</a>
-            <a href="#" style="opacity:0.9">CurseForge / Modrinth</a>
-            <a href="#" style="opacity:0.9">GitHub</a>
-          </div>
         </div>
       </div>
 
     </section>
+    
 
   </main>
 
   <footer>
-    <div>© <span id="year"></span> Pesky Birds</div>
-    <div style="opacity:0.85">Made with ❤️ for Minecraft Bedrock</div>
+    <div style="text-align: center;">
+      <div>© <span id="year"></span> Pesky Birds</div>
+      <div style="font-size: 13px; opacity: 0.7; margin-top: 4px;">Made with ❤️ for Minecraft</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.curseforge.com/members/pesky_birds/projects" target="_blank" rel="noopener noreferrer">CurseForge</a>
+      <a href="https://mcpedl.com/user/PeskyBirds/" target="_blank" rel="noopener noreferrer">MCPEDL</a>
+      <a href="#" target="_blank" rel="noopener noreferrer">Discord</a>
+    </div>
   </footer>
 
   <!-- Modal -->
