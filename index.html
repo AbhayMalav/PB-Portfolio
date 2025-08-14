@@ -576,10 +576,15 @@
 
              <div class="contact-grid">
         <div>
-          <form onsubmit="event.preventDefault(); sendForm()">
-            <input id="name" placeholder="Your name" required />
-            <input id="email" placeholder="Your email" required />
-            <textarea id="message" rows="5" placeholder="Message" required></textarea>
+          <form action="https://formsubmit.co/contact.peskybirds@gmail.com" method="POST">
+            <!-- 1. Replace YOUR-EMAIL-HERE with your actual email address -->
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+            <input type="email" id="email" name="email" placeholder="Your email" required />
+            <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+            
+            <!-- 2. (Optional) Add a custom subject line for emails you receive -->
+            <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission!">
+
             <div style="display:flex;gap:8px">
               <button class="btn btn-primary" type="submit">Send Message</button>
             </div>
@@ -617,17 +622,6 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    function sendForm(){
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if(!name||!email||!message) return alert('Please fill all fields');
-      // fallback: open mailto with prefilled body (no backend required)
-      const subject = encodeURIComponent('Portfolio contact from ' + name);
-      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
-      location.href = 'mailto:youremail@example.com?subject=' + subject + '&body=' + body;
-    }
 
     // Smooth scroll for anchors
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
