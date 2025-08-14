@@ -576,17 +576,16 @@
 
              <div class="contact-grid">
         <div>
-          <form action="https://formsubmit.co/contact.peskybirds@gmail.com" method="POST">
-            <!-- 1. Replace YOUR-EMAIL-HERE with your actual email address -->
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c66a1052-e1cb-42a1-a8ca-94087bfb3ff8">
             <input type="text" id="name" name="name" placeholder="Your name" required />
             <input type="email" id="email" name="email" placeholder="Your email" required />
             <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
             
-            <!-- 2. (Optional) Add a custom subject line for emails you receive -->
-            <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission!">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
             <div style="display:flex;gap:8px">
-              <button class="btn btn-primary" type="submit">Send Message</button>
+              <button class="btn btn-primary" type="submit">Send</button>
             </div>
           </form>
         </div>
