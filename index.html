@@ -57,6 +57,12 @@
     .device{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;min-height:220px;display:flex;flex-direction:column}
     .screenshot{flex:1;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#0b1220,#071124);display:grid;place-items:center;}
     .pixel{width:92%;height:88%;background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 8px);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.14);font-family:'Press Start 2P',monospace;font-size:12px}
+    .screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
     .meta{display:flex;justify-content:space-between;align-items:center;padding-top:10px}
 
     /* Projects */
@@ -64,7 +70,13 @@
     .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .card{background:var(--card);padding:12px;border-radius:12px;min-height:160px;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;transition:transform .18s ease, box-shadow .18s ease}
     .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
-    .card .thumb{height:120px;border-radius:8px;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:grid;place-items:center;font-family:'Press Start 2P',monospace;color:rgba(255,255,255,0.12);overflow:hidden;}
+    .card .thumb{aspect-ratio:720/340;border-radius:8px;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:grid;place-items:center;font-family:'Press Start 2P',monospace;color:rgba(255,255,255,0.12);overflow:hidden}
+    .card .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .tags{display:flex;gap:8px;flex-wrap:wrap}
     button.card {
       border: none;
@@ -90,7 +102,10 @@
 
     /* Contact */
     form{display:flex;flex-direction:column;gap:12px}
-    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:12px;border-radius:8px;color:inherit}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:12px;border-radius:8px;color:inherit;transition:border-color .2s ease}
+    input:invalid, textarea:invalid {
+      border-color: var(--accent);
+    }
     .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
 
     /* Social Media */
@@ -171,6 +186,14 @@
     /* subtle animated gradient underline */
     .brand-underline{height:4px;width:140px;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2));opacity:0.12}
 
+    /* Section fade animation */
+    .hero, .section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .hero.is-visible, .section.is-visible { opacity: 1; transform: translateY(0); }
+
   </style>
 </head>
 <body>
@@ -213,7 +236,7 @@
         <div class="device">
           <div class="screenshot">
             <a href="https://www.curseforge.com/minecraft-bedrock/addons/crunch" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/crunch_logo.png" alt="Crunch Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Crunch Logo.png" alt="Crunch Logo">
             </a>
           </div>
           <div class="meta">
@@ -248,7 +271,7 @@
         <button class="card"">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/addons/crunch" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/crunch_thumbnail.png" alt="Crunch Logo" style="width:100%;height:100%;object-fit:contain;display:block;">
+              <img src="Assets/Images/Crunch.png" alt="Crunch Logo">
             </a>
           </div>
           <div>
@@ -262,7 +285,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/skins/one-piece-whiskey-peak-ark" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/one_piece_thumbnail.png" alt="One Piece Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/One Piece.png" alt="One Piece Logo">
             </a>
           </div>
           <div>
@@ -276,7 +299,7 @@
         <button class="card" >
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/skins/dragon-ball" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/dragon_ball_thumbnail.png" alt="Dragon Ball Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Dragonball Z.png" alt="Dragon Ball Logo">
             </a>
           </div>
           <div>
@@ -290,7 +313,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/addons/fuel-bits" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/fuel_bits_thumbnail.png" alt="Fuel Bits Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Fuel Bits.png" alt="Fuel Bits Logo">
             </a>
           </div>
           <div>
@@ -304,7 +327,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/skins/goblin-slayer" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/goblin_slayer_thumbnail.png" alt="Goblin Slayer Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Goblin Slayer.png" alt="Goblin Slayer Logo">
             </a>
           </div>
           <div>
@@ -318,7 +341,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/skins/highnoon-heroes" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/high_noon_heroes_thumbnail.png" alt="High Noon Heroes Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Highnoon Heroes.png" alt="High Noon Heroes Logo">
             </a>
           </div>
           <div>
@@ -332,7 +355,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/addons/city-streets" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/city_streets.png" alt="City Streets Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/City Streets Plus.png" alt="City Streets Logo">
             </a>
           </div>
           <div>
@@ -346,7 +369,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/skins/anime-maids-skin-pack" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/anime_maids.png" alt="Anime Maids Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Anime Maids.png" alt="Anime Maids Logo">
             </a>
           </div>
           <div>
@@ -360,7 +383,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/skins/cooking-magic" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/Cooking Magic.png" alt="Cooking Magic Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Cooking Magic.png" alt="Cooking Magic Logo">
             </a>
           </div>
           <div>
@@ -374,7 +397,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/texture-packs/dye-bowls" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/dye bowls.png" alt="Dye Bowls Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/dye bowls.png" alt="Dye Bowls Logo">
             </a>
           </div>
           <div>
@@ -388,7 +411,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/skins/gingerbread-skins" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/gingerbread.png" alt="Gingerbread Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/gingerbread.png" alt="Gingerbread Logo">
             </a>
           </div>
           <div>
@@ -402,7 +425,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://mcpedl.com/christmas-spirit/" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/christmas spirit.png" alt="Christmas Spirit Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/christmas spirit.png" alt="Christmas Spirit Logo">
             </a>
           </div>
           <div>
@@ -416,7 +439,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.planetminecraft.com/mod/secrets-of-sand-minecraft-bedrock/" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/sos.png" alt="Secret of sands Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Secrets Of Sands.png" alt="Secret of sands Logo">
             </a>
           </div>
           <div>
@@ -430,11 +453,11 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/skins/power-rangers-spd" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/power ranger.png" alt="Power Ranges Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Power Rangers.png" alt="Power Rangers Logo">
             </a>
           </div>
           <div>
-            <div style="font-weight:800">Power Ranges</div>
+            <div style="font-weight:800">Power Rangers</div>
             <div class="tags" style="margin-top:8px">
               <div class="tag">Skin Pack</div>
             </div>
@@ -443,7 +466,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://mcpedl.com/spooky-skins/" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/spooky skins.png" alt="Spooky Skins Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/spooky skins.png" alt="Spooky Skins Logo">
             </a>
           </div>
           <div>
@@ -458,7 +481,7 @@
         <button class="card">
           <div class="thumb">
             <a href="https://www.curseforge.com/minecraft-bedrock/skins/true-adventures-skin-pack" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/true adventures.png" alt="True Adventures Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/true adventures.png" alt="True Adventures Logo">
             </a>
           </div>
           <div>
@@ -472,7 +495,7 @@
         <button class="card" >
           <div class="thumb">
             <a href="https://mcpedl.com/winter-wardrobe/" target="_blank" rel="noopener noreferrer">
-              <img src="Assets/Images/winter wardrobe.png" alt="Winter Wardrobe Logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="Assets/Images/Winter Wardrobe.png" alt="Winter Wardrobe Logo">
             </a>
           </div>
           <div>
@@ -618,6 +641,26 @@
         }
       })
     })
+
+    // Intersection Observer for section animations
+    const sections = document.querySelectorAll('.hero, .section');
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => { observer.observe(section); });
   </script>
 </body>
 </html>
