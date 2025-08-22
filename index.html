@@ -10,191 +10,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg1: #0f172a; /* deep navy */
-      --bg2: #071124; /* darker */
-      --accent: #ff4438; /* mint */
-      --accent-2: #f6c85f; /* warm gold */
-      --glass: rgba(255,255,255,0.06);
-      --card: rgba(255,255,255,0.03);
-      --glass-2: rgba(255,255,255,0.04);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    body{
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(126,231,135,0.06), transparent),
-                  radial-gradient(900px 500px at 90% 90%, rgba(246,200,95,0.04), transparent),
-                  linear-gradient(180deg,var(--bg1),var(--bg2));
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-      padding-bottom:80px;
-    }
-
-    /* NAV */
-    header{position:sticky;top:16px;z-index:60;display:flex;justify-content:center}
-    nav{width:980px;max-width:94%;display:flex;align-items:center;justify-content:space-between;padding:10px;border-radius:18px;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(6px);box-shadow:0 6px 20px rgba(2,6,23,0.6)}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 6px 18px rgba(13,20,30,0.6);font-family:'Press Start 2P',monospace;color:#071124;font-weight:700}
-    h1.logo-txt{font-size:13px;margin:0}
-    .nav-links{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-    .nav-links a{color:inherit;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;opacity:0.9;white-space:nowrap}
-    .nav-links a:hover{background:var(--glass);transform:translateY(-2px)}
-
-    /* HERO */
-    .hero{max-width:980px;margin:48px auto 20px;padding:36px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(6px);display:grid;grid-template-columns:1fr 360px;gap:28px}
-    .hero-left h2{font-size:34px;margin:0 0 8px;font-weight:800}
-    .sub{opacity:0.85;margin-bottom:18px}
-    .cta{display:flex;gap:12px}
-    .btn{padding:12px 16px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#071124}
-    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
-
-    /* Mock device */
-    .hero-right{display:flex;flex-direction:column;gap:12px}
-    .device{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;min-height:220px;display:flex;flex-direction:column}
-    .screenshot{flex:1;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#0b1220,#071124);display:grid;place-items:center;}
-    .pixel{width:92%;height:88%;background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 8px);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.14);font-family:'Press Start 2P',monospace;font-size:12px}
-    .screenshot img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-    .meta{display:flex;justify-content:space-between;align-items:center;padding-top:10px}
-
-    /* Projects */
-    .section{max-width:980px;margin:28px auto;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));backdrop-filter:blur(6px)}
-    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--card);padding:12px;border-radius:12px;min-height:160px;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;transition:transform .18s ease, box-shadow .18s ease}
-    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
-    .card .thumb{aspect-ratio:720/340;border-radius:8px;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:grid;place-items:center;font-family:'Press Start 2P',monospace;color:rgba(255,255,255,0.12);overflow:hidden}
-    .card .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .tags{display:flex;gap:8px;flex-wrap:wrap}
-    button.card {
-      border: none;
-      font: inherit;
-      color: inherit;
-      text-align: inherit;
-      cursor: pointer;
-    }
-    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02)}
-    .card-title{font-weight:800}
-
-    /* About */
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
-    .about-grid p {
-      opacity: 0.85;
-      text-align: justify;
-      line-height: 1.6;
-    }
-    .quick-facts-container {
-      display: flex;
-      gap: 10px;
-    }
-
-    /* Contact */
-    form{display:flex;flex-direction:column;gap:12px}
-    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:12px;border-radius:8px;color:inherit;transition:border-color .2s ease}
-    input:invalid, textarea:invalid {
-      border-color: var(--accent);
-    }
-    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
-
-    /* Social Media */
-    .social-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.social-btn {
-  display: flex;
-  align-items: center;
-  background: var(--glass-2);
-  color: inherit;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.social-btn img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  margin-right: 10px;
-}
-
-.social-btn:hover {
-  background: var(--glass);
-  transform: translateY(-2px);
-}
-
-
-    footer{max-width:980px;margin:48px auto 0;padding:24px 0;color:rgba(230,238,248,0.6);display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--glass)}
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-    .footer-links a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color .2s ease;
-    }
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .projects-grid{grid-template-columns:repeat(2,1fr)}
-      .about-grid{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr;gap:24px}
-    }
-    @media (max-width:620px){
-      .projects-grid{grid-template-columns:1fr}
-      nav{padding:8px;flex-direction:column;gap:12px}
-      .nav-links{gap:8px;justify-content:center}
-      .nav-links a{padding:6px 10px;font-size:14px}
-      .logo{width:40px;height:40px}
-      h2{font-size:26px}
-      .contact-grid{gap:20px}
-      .section{padding:20px}
-      .hero{padding:24px}
-      .quick-facts-container {
-        flex-direction: column;
-      }
-      footer {
-        flex-direction: column;
-        gap: 16px;
-      }
-    }
-
-    /* little pixel accent */
-    .pixel-block{width:10px;height:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 4px 12px rgba(0,0,0,0.5);border-radius:2px}
-
-    /* subtle animated gradient underline */
-    .brand-underline{height:4px;width:140px;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2));opacity:0.12}
-
-    /* Section fade animation */
-    .hero, .section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .hero.is-visible, .section.is-visible { opacity: 1; transform: translateY(0); }
-
-  </style>
+  <link rel="stylesheet" href="Styles/style.css">
 </head>
 <body>
   <header>
@@ -210,6 +26,7 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a class="btn btn-ghost" href="https://www.curseforge.com/members/pesky_birds/projects" target="_blank" rel="noopener noreferrer">CurseForge</a>
+        <a class="btn btn-ghost" href="https://discord.gg/PKy7SZTB" target="_blank" rel="noopener noreferrer">Discord</a>
       </div>
     </nav>
   </header>
@@ -249,13 +66,13 @@
           <div class="device" style="flex:1;min-height:64px;justify-content:center;align-items:center">
             <div style="text-align:center">
               <div style="font-weight:800">Downloads</div>
-              <div style="opacity:0.8">9600+</div>
+              <div id="latest-addon-downloads" style="opacity:0.8"></div>
             </div>
           </div>
           <div class="device" style="width:110px;min-height:64px;justify-content:center;align-items:center">
             <div style="text-align:center">
               <div style="font-weight:800">Rating</div>
-              <div style="opacity:0.8">4.8 ★</div>
+              <div id="latest-addon-rating" style="opacity:0.8"></div>
             </div>
           </div>
         </div>
@@ -505,18 +322,13 @@
             </div>
           </div>
         </button>
-
-
-
-
-
       </div>
     </section>
 
     <section class="section" id="about">
       <h3 style="margin:0 0 8px">About Us</h3>
       <div class="about-grid">
-        <div><p>Founded in 2023 by<b> “Luciosinferno”,</b> Pesky Birds is a small game development studio creating engaging Minecraft Bedrock addons and DLC. What began as a hobby in 2017 grew into a dedicated studio, releasing custom gameplay experiences, skins, and textures enjoyed by players across MCPEDL and CurseForge. To date, we’ve released over 17+ projects, including add-ons, skin packs, and textures, amassing more than <b>75K+ downloads</b> worldwide.</p></div>
+        <div><p>Founded in 2023 by<b> “Luciosinferno”,</b> Pesky Birds is a small game development studio creating engaging Minecraft Bedrock addons and DLC. What began as a hobby in 2017 grew into a dedicated studio, releasing custom gameplay experiences, skins, and textures enjoyed by players across MCPEDL and CurseForge. To date, we’ve released over <span id="about-published-assets"></span> projects, including add-ons, skin packs, and textures, amassing more than <b id="about-total-downloads"></b> worldwide.</p></div>
         <div>
           <div style="padding:14px;border-radius:12px;background:var(--glass-2);min-height:180px;display:flex;flex-direction:column;gap:10px">
             <div style="font-weight:800">Quick facts</div>
@@ -526,11 +338,11 @@
                 <div style="opacity:0.8">Hours of development on each project</div>
               </div>
               <div class="btn btn-ghost">
-                <div style="font-weight:800">17+</div>
+                <div id="quick-fact-published-assets" style="font-weight:800"></div>
                 <div style="opacity:0.8">Published assets</div>
               </div>
               <div class="btn btn-ghost" >
-                <div style="font-weight:800">79k+</div>
+                <div id="quick-fact-total-downloads" style="font-weight:800"></div>
                 <div style="opacity:0.8">Total downloads</div>
               </div>
             </div>
@@ -556,7 +368,7 @@
           <span>Discord</span>
         </a>
     
-        <a href="https://www.instagram.com/YOURUSERNAME" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <a href="https://www.instagram.com/pesky_birds/" target="_blank" rel="noopener noreferrer" class="social-btn">
           <img src="Assets/Icons/instagram.png" alt="Instagram">
           <span>Instagram</span>
         </a>
@@ -600,7 +412,6 @@
       </div>
 
     </section>
-    
 
   </main>
 
@@ -616,51 +427,6 @@
     </div>
   </footer>
 
-  <!-- Modal -->
-  <div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:100">
-    <div style="width:820px;max-width:94%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;backdrop-filter:blur(6px)">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <div id="modal-title" style="font-weight:800"></div>
-        <button onclick="closeModal()" class="btn btn-ghost">Close</button>
-      </div>
-      <div id="modal-body" style="opacity:0.95"></div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Smooth scroll for anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const target = a.getAttribute('href');
-        if(target.startsWith('#')){
-          e.preventDefault();
-          const el = document.querySelector(target);
-          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-        }
-      })
-    })
-
-    // Intersection Observer for section animations
-    const sections = document.querySelectorAll('.hero, .section');
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        } else {
-          entry.target.classList.remove('is-visible');
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => { observer.observe(section); });
-  </script>
+  <script src="Scripts/script.js" defer></script>
 </body>
 </html>
