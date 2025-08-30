@@ -59,4 +59,38 @@ const observer = new IntersectionObserver((entries, observer) => {
   });
 }, observerOptions);
 
-sections.forEach(section => { observer.observe(section); });
+sections.forEach(section => { observer.observe(section); }); 
+
+// --- Back to Top Button Logic ---
+
+const backToTopButton = document.getElementById("back-to-top-btn");
+
+// Throttles a function to limit how often it can be called.
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function() {
+    const context = this;
+    const args = arguments;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+};
+
+const handleScroll = () => {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    backToTopButton.classList.add("show");
+  } else {
+    backToTopButton.classList.remove("show");
+  }
+};
+
+// Add a throttled scroll event listener for better performance
+window.addEventListener('scroll', throttle(handleScroll, 250));
+
+// When the user clicks on the button, scroll to the top smoothly
+backToTopButton.addEventListener("click", function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
