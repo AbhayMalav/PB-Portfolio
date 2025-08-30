@@ -24,7 +24,7 @@
       <div class="nav-links">
         <a class="btn btn-ghost" href="#projects">Projects</a>
         <a class="btn btn-ghost" href="#about">About</a>
-        <a class="btn btn-ghost" href="#contact">Contact</a>
+        <a class="btn btn-ghost open-contact-modal" href="#">Contact</a>
         <a class="btn btn-ghost" href="https://www.curseforge.com/members/pesky_birds/projects" target="_blank" rel="noopener noreferrer">CurseForge</a>
         <a class="btn btn-ghost" href="https://discord.gg/PKy7SZTB" target="_blank" rel="noopener noreferrer">Discord</a>
         <a class="btn btn-ghost" href="https://ko-fi.com/peskybirds" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
@@ -39,7 +39,7 @@
         <p class="sub">Pesky birds is a small studio focused on lightweight, compatible Bedrock addons that feel native to the game.</p>
         <div class="cta">
           <a class="btn btn-primary" href="#projects">Portfolio</a>
-          <a class="btn btn-ghost" href="#contact">Contact</a>
+          <a class="btn btn-ghost open-contact-modal" href="#">Contact</a>
         </div>
 
         <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
@@ -391,29 +391,6 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <h3 style="margin:0 0 8px">Contact</h3>
-      <p style="opacity:0.8;margin:0 0 12px">Have a project, partnership, or question? Send a short message.</p>
-
-             <div class="contact-grid">
-        <div>
-          <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="c66a1052-e1cb-42a1-a8ca-94087bfb3ff8">
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-            <input type="email" id="email" name="email" placeholder="Your email" required />
-            <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
-            
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-            <div style="display:flex;gap:8px">
-              <button class="btn btn-primary" type="submit">Send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-    </section>
-
   </main>
 
   <footer>
@@ -428,6 +405,36 @@
       <a href="https://ko-fi.com/peskybirds" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
     </div>
   </footer>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close-btn" title="Close">&times;</button>
+      <section id="contact-section-content" class="section">
+        <h3 style="margin:0 0 8px">Contact</h3>
+        <p style="opacity:0.8;margin:0 0 12px">Have a project, partnership, or question? Send a short message.</p>
+
+        <div>
+          <div id="contact-form-container">
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="c66a1052-e1cb-42a1-a8ca-94087bfb3ff8">
+              <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
+              <input type="hidden" name="from_name" value="Pesky Birds Portfolio">
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+              <input type="email" id="email" name="email" placeholder="Your email" required />
+              <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-primary" type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 
   <script src="Scripts/script.js" defer></script>
   <!-- Back to Top Button -->

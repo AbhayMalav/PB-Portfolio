@@ -88,9 +88,15 @@ button.card {
 }
 
 /* Contact */
-form{display:flex;flex-direction:column;gap:12px}
-input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:12px;border-radius:8px;color:inherit;transition:border-color .2s ease}
-input:invalid, textarea:invalid {
+#contact-form{display:flex;flex-direction:column;gap:12px}
+/* Selects only the visible input fields in the contact form and makes them full-width */
+#contact-form input:not([type="hidden"]):not([type="checkbox"]),
+#contact-form textarea {
+  width: 100%;
+  background:transparent;border:1px solid rgba(255,255,255,0.05);padding:12px;border-radius:8px;color:inherit;transition:border-color .2s ease
+}
+/* Make the invalid selector more specific to override the base style */
+#contact-form input:not([type="hidden"]):not([type="checkbox"]):invalid, #contact-form textarea:invalid {
   border-color: var(--accent);
 }
 .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
@@ -213,4 +219,81 @@ footer{max-width:980px;margin:48px auto 0;padding:24px 0;color:rgba(230,238,248,
 #back-to-top-btn:hover {
   background-color: var(--accent);
   border-color: var(--accent);
+}
+
+/* Contact Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+  transform: scale(1);
+}
+
+.modal-content .section {
+  padding: 0; /* Remove extra padding from the section inside */
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  opacity: 1;
+}
+/* Form Submission Messages */
+.form-success-message, .form-error-message {
+  text-align: center;
+  padding: 20px;
+}
+
+.form-success-message h3 {
+  color: var(--accent-2); /* Yellow for success */
+  margin-bottom: 10px;
+}
+
+.form-error-message h3 {
+  color: var(--accent); /* Red for error */
+  margin-bottom: 10px;
 }

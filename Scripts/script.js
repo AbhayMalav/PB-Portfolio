@@ -94,3 +94,80 @@ window.addEventListener('scroll', throttle(handleScroll, 250));
 backToTopButton.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// --- Contact Modal Logic ---
+
+const contactModal = document.getElementById('contact-modal');
+const openModalBtns = document.querySelectorAll('.open-contact-modal');
+const closeModalBtn = document.querySelector('.modal-close-btn');
+
+const openModal = (e) => {
+  e.preventDefault();
+  contactModal.classList.add('show');
+};
+
+const closeModal = () => {
+  contactModal.classList.remove('show');
+};
+
+openModalBtns.forEach(btn => {
+  btn.addEventListener('click', openModal);
+});
+
+closeModalBtn.addEventListener('click', closeModal);
+
+// Close modal when clicking on the overlay
+contactModal.addEventListener('click', (e) => {
+  if (e.target === contactModal) {
+    closeModal();
+  }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && contactModal.classList.contains('show')) {
+    closeModal();
+  }
+});
+
+// --- AJAX Contact Form Submission ---
+
+const contactForm = document.getElementById('contact-form');
+const contactSectionContent = document.getElementById('contact-section-content');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(contactForm);
+    const object = {};
+    formData.forEach((value, key) => {
+      object[key] = value;
+    });
+    const json = JSON.stringify(object);
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    submitButton.innerHTML = "Sending...";
+    submitButton.disabled = true;
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      .then(async (response) => {
+        let jsonResponse = await response.json();
+        if (response.status == 200) {
+          contactSectionContent.innerHTML = `<div class="form-success-message"><h3>Thank You!</h3><p>Your message has been sent successfully. We'll get back to you soon.</p></div>`;
+        } else {
+          contactSectionContent.innerHTML = `<div class="form-error-message"><h3>Oops!</h3><p>${jsonResponse.message}</p><p>Please try again.</p></div>`;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        contactSectionContent.innerHTML = `<div class="form-error-message"><h3>Oops!</h3><p>Something went wrong. Please check your connection and try again.</p></div>`;
+      });
+  });
+}
