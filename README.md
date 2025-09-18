@@ -161,11 +161,6 @@ We welcome contributions to improve the portfolio website!
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## 📄 License
-
-This project is open source. Feel free to use the code structure as inspiration for your own portfolio projects.
-
 ## 📞 Contact
 
 **Pesky Birds Studio**
